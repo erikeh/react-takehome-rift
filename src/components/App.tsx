@@ -1,16 +1,38 @@
 import * as React from 'react';
+import BalanceDisplay from './BalanceDisplay';
+import ProgressDaysWidget from './ProgressDaysWidget';
 import DeFiServices from './DeFiServices';
+import styled from 'styled-components';
 import { hot } from 'react-hot-loader';
 import Theme from '../Theme';
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  flex: 0 1 70%;
+  flex-flow: row nowrap;
+  justify-content: center;
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding-bottom: 50px;
+  width: 100%;
+  height: 200px;
+`;
 
 function App() {
   return (
     <Theme>
-      <div>
-        {/* <USDCBalance /> */}
-        {/* <ProgressDaysWidget /> */}
-        <DeFiServices />
-      </div>
+      <HeaderWrapper>
+        <HeaderContainer>
+          <BalanceDisplay />
+          <ProgressDaysWidget />
+        </HeaderContainer>
+      </HeaderWrapper>
+
+      <DeFiServices />
     </Theme>
   );
 }
