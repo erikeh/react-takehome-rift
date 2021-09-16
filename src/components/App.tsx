@@ -1,13 +1,15 @@
-import * as React from "react";
-import { hot } from "react-hot-loader";
+import * as React from 'react';
+import { hot } from 'react-hot-loader';
 
 function App() {
-    return (
-      <div className="app">
-        <h1>Hello!</h1>
-        <p>This is a template for React</p>
-      </div>
-    );
+
+  return (
+    <div className="app">
+      {/* <USDCBalance /> */}
+      {/* <ProgressDaysWidget /> */}
+      {/* <DeFiServices /> */}
+    </div>
+  );
 }
 
 declare let module: React.ReactElement;
