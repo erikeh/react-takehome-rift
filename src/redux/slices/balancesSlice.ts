@@ -70,7 +70,7 @@ export const balancesReducer = createReducer<InitialBalancesState>(
         // if there is interest, we withdraw from interest, then the rest from amountDeposited
         if (interest) {
           state[action.payload.service].amountDeposited -=
-            withdrawAmount + interest;
+            withdrawAmount - interest;
           state[action.payload.service].accruedInterest = 0;
         } else {
           state[action.payload.service].amountDeposited -= withdrawAmount;

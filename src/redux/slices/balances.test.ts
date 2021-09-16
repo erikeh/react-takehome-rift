@@ -98,7 +98,7 @@ describe('redux balances slice', () => {
         initialState as InitialBalancesState,
         withdrawFromService({ amount: 50, service: 'compound' }),
       ),
-    );
+    ).toEqual(expectedState);
   });
 
   it('should withdraw amountDeposited and accruedInterest when withdrawAllFromService action is dispatched', () => {
