@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1631829717869" clover="3.2.0">
+  <project timestamp="1631829717869" name="All files">
+    <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7" elements="31" coveredelements="31" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+    <file name="balancesSlice.ts" path="/Users/erikoh/Desktop/Dev/repos/react-takehome-rift/src/redux/slices/balancesSlice.ts">
+      <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="40" count="1" type="stmt"/>
+      <line num="43" count="1" type="stmt"/>
+      <line num="44" count="1" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="57" count="1" type="stmt"/>
+      <line num="59" count="1" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="65" count="1" type="stmt"/>
+      <line num="68" count="2" type="stmt"/>
+      <line num="69" count="2" type="stmt"/>
+      <line num="71" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="72" count="1" type="stmt"/>
+      <line num="74" count="1" type="stmt"/>
+      <line num="76" count="1" type="stmt"/>
+      <line num="80" count="1" type="stmt"/>
+      <line num="84" count="1" type="stmt"/>
+      <line num="85" count="1" type="stmt"/>
+      <line num="88" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

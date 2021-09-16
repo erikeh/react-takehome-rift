@@ -1,7 +1,7 @@
 {
   "rootDir": "../",
   "testEnvironment": "jsdom",
-  "roots": "<rootDir>/src/",
+  "roots": ["<rootDir>/src/"],
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
   "transformIgnorePatterns": ["/node_modules/"],
   "moduleDirectories": ["node_modules"]

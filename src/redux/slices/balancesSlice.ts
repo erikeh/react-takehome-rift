@@ -5,7 +5,7 @@ interface DeFiServiceBalances {
   accruedInterest: number;
 }
 
-interface InitialBalancesState {
+export interface InitialBalancesState {
   USDC: number;
   compound: DeFiServiceBalances;
   aave: DeFiServiceBalances;
@@ -17,6 +17,7 @@ interface TransactionActionPayload {
   amount: number;
   service: string;
 }
+type WithdrawAllActionPayload = Omit<TransactionActionPayload, 'amount'>;
 
 export const balancesState: InitialBalancesState = {
   USDC: 1000,
@@ -43,6 +44,9 @@ export const depositToService =
 export const withdrawFromService = createAction<TransactionActionPayload>(
   'WITHDRAW_FROM_SERVICE',
 );
+export const withdrawAllFromService = createAction<WithdrawAllActionPayload>(
+  'WITHDRAW_ALL_FROM_SERVICE',
+);
 export const accrueInterest = createAction<TransactionActionPayload>(
   'ACCRUE_INTEREST_FROM_SERVICE',
 );
@@ -62,16 +66,23 @@ export const balancesReducer = createReducer<InitialBalancesState>(
       })
       .addCase(withdrawFromService, (state, action) => {
         const withdrawAmount = action.payload.amount;
-        let amountDeposited = state[action.payload.service].amountDeposited;
-        let interest =
-          state[action.payload.service].accruedInterest || undefined;
+        const interest = state[action.payload.service].accruedInterest;
         // if there is interest, we withdraw from interest, then the rest from amountDeposited
         if (interest) {
-          amountDeposited -= withdrawAmount + interest;
-          interest = 0;
+          state[action.payload.service].amountDeposited -=
+            withdrawAmount + interest;
+          state[action.payload.service].accruedInterest = 0;
         } else {
-          amountDeposited -= withdrawAmount;
+          state[action.payload.service].amountDeposited -= withdrawAmount;
         }
+      })
+      .addCase(withdrawAllFromService, (state, action) => {
+        state.USDC +=
+          state[action.payload.service].amountDeposited +
+          state[action.payload.service].accruedInterest;
+
+        state[action.payload.service].amountDeposited = 0;
+        state[action.payload.service].accruedInterest = 0;
       })
       .addCase(accrueInterest, (state, action) => {
         state[action.payload.service].accruedInterest += action.payload.amount;
