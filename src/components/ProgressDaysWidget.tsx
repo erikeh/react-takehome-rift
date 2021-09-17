@@ -19,11 +19,6 @@ const DaysToProgress = styled.p`
   font-size: ${({ theme }) => theme.header.fontSize};
 `;
 
-const DaysInputField = styled.input`
-
-`;
-const ProgressButton = styled.button``;
-
 function ProgressDaysWidget(): ReactElement {
   const [daysToProgress, setDaysToProgress] = useState(0);
   const services = useAppSelector((state) => state.balances);
@@ -52,12 +47,12 @@ function ProgressDaysWidget(): ReactElement {
   return (
     <WidgetContainer>
       <DaysToProgress>Days To Progress</DaysToProgress>
-      <DaysInputField
+      <input
         value={daysToProgress}
         placeholder="365"
         onChange={handleDaysChange}
       />
-      <ProgressButton onClick={handleAccrueInterest}>Enter</ProgressButton>
+      <button onClick={handleAccrueInterest}>Enter</button>
     </WidgetContainer>
   );
 }

@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import ToggleButtons from './ToggleButtons';
 import TransactionForm from './TransactionForm';
-import { useAppSelector, useAppDispatch } from '../../../typedHooks';
+import { useAppSelector } from '../../../typedHooks';
 import styled from 'styled-components';
 
 interface Props {

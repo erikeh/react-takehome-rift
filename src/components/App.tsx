@@ -2,6 +2,7 @@ import * as React from 'react';
 import BalanceDisplay from './BalanceDisplay';
 import ProgressDaysWidget from './ProgressDaysWidget';
 import DeFiServices from './DeFiServices';
+import Heading from './Heading';
 import styled from 'styled-components';
 import { hot } from 'react-hot-loader';
 import Theme from '../Theme';
@@ -34,6 +35,7 @@ function App() {
   return (
     <Theme>
       <GlobalStyle />
+      <Heading />
       <HeaderWrapper>
         <HeaderContainer>
           <BalanceDisplay />

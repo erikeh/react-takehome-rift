@@ -1,4 +1,3 @@
-import { SetState } from 'immer/dist/internal';
 import React, { Dispatch, ReactElement, SetStateAction } from 'react';
 import styled from 'styled-components';
 
@@ -22,12 +21,15 @@ const StyledButton = styled.button`
   background: none;
   border: 1px solid black;
   padding: 10px 15px;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #f1fffa;
+  }
 `;
 
 const DepositButton = styled(StyledButton)<ButtonProps>`
   background-color: ${({ theme, isDepositing }) =>
     isDepositing ? theme.buttonActive : theme.buttonInActive};
-  transition: background-color 0.3s;
 `;
 
 const WithdrawButton = styled(StyledButton)<ButtonProps>`

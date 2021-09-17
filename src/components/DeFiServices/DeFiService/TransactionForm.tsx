@@ -6,6 +6,7 @@ import {
   withdrawUSDC,
   depositToService,
   withdrawFromService,
+  withdrawAllFromService,
 } from '../../../redux/slices/balancesSlice';
 
 interface Props {
@@ -22,8 +23,11 @@ const AmountForm = styled.form`
   width: 70%;
 `;
 const ConfirmButton = styled.button`
-  margin-top: 25%;
+  margin: 10% 0;
   padding: 8px 25px;
+`;
+const WithdrawAllButton = styled.button`
+  padding: 8px 35px;
 `;
 
 const LabelFieldContainer = styled.div`
@@ -79,6 +83,10 @@ function TransactionForm({
     }
   };
 
+  const handleWithdrawAll = () => {
+    dispatch(withdrawAllFromService({ service: name.toLowerCase() }));
+  };
+
   return (
     <>
       <AmountForm onSubmit={handleSubmitTransaction}>
@@ -86,9 +94,11 @@ function TransactionForm({
           <label>Amount</label>
           <AmountField value={transactionAmount} onChange={handleChange} />
         </LabelFieldContainer>
-
-        <ConfirmButton type="submit">Confirm</ConfirmButton>
       </AmountForm>
+      <ConfirmButton onClick={handleSubmitTransaction}>Confirm</ConfirmButton>
+      <WithdrawAllButton onClick={handleWithdrawAll}>
+        Withdraw All
+      </WithdrawAllButton>
     </>
   );
 }
