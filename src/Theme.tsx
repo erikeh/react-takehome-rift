@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { ThemedCssFunction, ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
 interface Props {
   children: ReactElement[];
@@ -10,7 +10,7 @@ const globalTheme = {
     bgColor: '#003459',
   },
   header: {
-    fontSize: '2em',
+    fontSize: '1.3em',
   },
   buttonActive: '#F1FFFA',
   buttonInActive: '#80868a',

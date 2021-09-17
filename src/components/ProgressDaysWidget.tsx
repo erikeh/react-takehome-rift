@@ -7,8 +7,11 @@ const WidgetContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   flex: 0 1 40%;
+  justify-content: space-around;
+  height: 60%;
   align-items: center;
   border: 1px solid black;
+  border-radius: 10px;
   background-color: ${({ theme }) => theme.card.bgColor};
 `;
 
@@ -16,7 +19,9 @@ const DaysToProgress = styled.p`
   font-size: ${({ theme }) => theme.header.fontSize};
 `;
 
-const DaysInputField = styled.input``;
+const DaysInputField = styled.input`
+
+`;
 const ProgressButton = styled.button``;
 
 function ProgressDaysWidget(): ReactElement {

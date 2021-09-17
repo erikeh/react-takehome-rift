@@ -32,6 +32,8 @@ const LabelFieldContainer = styled.div`
 `;
 const AmountField = styled.input`
   width: 50%;
+  border: 0 0 1px 0;
+  outline: none;
 `;
 
 function TransactionForm({
@@ -53,29 +55,27 @@ function TransactionForm({
   const handleSubmitTransaction = (e) => {
     e.preventDefault();
     if (isDepositing) {
-      if (USDCBalance < transactionAmount) {
+      if (USDCBalance < (transactionAmount || 0)) {
         alert('not enough funds!');
       } else {
-        dispatch(withdrawUSDC(transactionAmount));
+        dispatch(withdrawUSDC(transactionAmount || 0));
         dispatch(
           depositToService({
-            amount: transactionAmount,
+            amount: transactionAmount || 0,
             service: name.toLowerCase(),
           }),
         );
       }
+    } else if (amountDeposited + accruedInterest < (transactionAmount || 0)) {
+      alert('not enough funds!');
     } else {
-      if (amountDeposited + accruedInterest < transactionAmount) {
-        alert('not enough funds!');
-      } else {
-        dispatch(depositUSDC(transactionAmount));
-        dispatch(
-          withdrawFromService({
-            amount: transactionAmount,
-            service: name.toLowerCase(),
-          }),
-        );
-      }
+      dispatch(depositUSDC(transactionAmount || 0));
+      dispatch(
+        withdrawFromService({
+          amount: transactionAmount || 0,
+          service: name.toLowerCase(),
+        }),
+      );
     }
   };
 

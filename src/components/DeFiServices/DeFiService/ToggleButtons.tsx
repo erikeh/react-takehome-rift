@@ -27,6 +27,7 @@ const StyledButton = styled.button`
 const DepositButton = styled(StyledButton)<ButtonProps>`
   background-color: ${({ theme, isDepositing }) =>
     isDepositing ? theme.buttonActive : theme.buttonInActive};
+  transition: background-color 0.3s;
 `;
 
 const WithdrawButton = styled(StyledButton)<ButtonProps>`
