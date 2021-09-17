@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { accrueInterest } from '../redux/slices/balancesSlice';
 import { useAppDispatch, useAppSelector } from '../typedHooks';
 
-const WidgetContainer = styled.div`
+const WidgetContainer = styled.form`
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   flex: 0 1 40%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   height: 60%;
   align-items: center;
   border: 1px solid black;
@@ -15,8 +15,27 @@ const WidgetContainer = styled.div`
   background-color: ${({ theme }) => theme.card.bgColor};
 `;
 
-const DaysToProgress = styled.p`
+const StyledRow = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+const StyledLabel = styled.label`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   font-size: ${({ theme }) => theme.header.fontSize};
+`;
+
+const StyledInput = styled.input`
+  margin-left: 8px;
+  height: auto;
+`;
+
+const StyledButton = styled.button`
+  padding: 2px 20px;
 `;
 
 function ProgressDaysWidget(): ReactElement {
@@ -45,14 +64,20 @@ function ProgressDaysWidget(): ReactElement {
   };
 
   return (
-    <WidgetContainer>
-      <DaysToProgress>Days To Progress</DaysToProgress>
-      <input
-        value={daysToProgress}
-        placeholder="365"
-        onChange={handleDaysChange}
-      />
-      <button onClick={handleAccrueInterest}>Enter</button>
+    <WidgetContainer onSubmit={handleAccrueInterest}>
+      <StyledRow>
+        <StyledLabel>
+          Days To Progress
+          <StyledInput
+            value={daysToProgress}
+            placeholder="365"
+            onChange={handleDaysChange}
+          />
+        </StyledLabel>
+      </StyledRow>
+      <StyledRow>
+        <StyledButton type="submit">Enter</StyledButton>
+      </StyledRow>
     </WidgetContainer>
   );
 }

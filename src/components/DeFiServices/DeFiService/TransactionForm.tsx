@@ -34,10 +34,11 @@ const LabelFieldContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const AmountField = styled.input`
+const AmountInput = styled.input`
   width: 50%;
   border: 0 0 1px 0;
   outline: none;
+  margin-left: 10px;
 `;
 
 function TransactionForm({
@@ -91,11 +92,17 @@ function TransactionForm({
     <>
       <AmountForm onSubmit={handleSubmitTransaction}>
         <LabelFieldContainer>
-          <label>Amount</label>
-          <AmountField value={transactionAmount} onChange={handleChange} />
+          <label>
+            Amount
+            <AmountInput
+              type="number"
+              value={transactionAmount}
+              onChange={handleChange}
+            />
+          </label>
         </LabelFieldContainer>
+        <ConfirmButton type="submit">Confirm</ConfirmButton>
       </AmountForm>
-      <ConfirmButton onClick={handleSubmitTransaction}>Confirm</ConfirmButton>
       <WithdrawAllButton onClick={handleWithdrawAll}>
         Withdraw All
       </WithdrawAllButton>

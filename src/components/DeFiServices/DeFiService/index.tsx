@@ -49,8 +49,8 @@ function DeFiService({ name, APY }: Props): ReactElement {
 
       <BalancesContainer>
         <APYWrapper>{`APY: ${APY}`}</APYWrapper>
-        <div>{`Amount Deposited: ${amountDeposited}`}</div>
-        <div>{`Accrued Interest: ${accruedInterest}`}</div>
+        <div data-testid="amountDeposited">{`Amount Deposited: ${amountDeposited}`}</div>
+        <div data-testid="accruedInterest">{`Accrued Interest: ${accruedInterest}`}</div>
       </BalancesContainer>
 
       <ToggleButtons

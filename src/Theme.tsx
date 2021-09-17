@@ -10,7 +10,7 @@ const globalTheme = {
     bgColor: '#003459',
   },
   header: {
-    fontSize: '1.3em',
+    fontSize: '1.2em',
   },
   buttonActive: '#F1FFFA',
   buttonInActive: '#80868a',
