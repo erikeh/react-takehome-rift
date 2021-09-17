@@ -23,6 +23,12 @@ const HeaderContainer = styled.div`
 `;
 
 function App() {
+  // This object is what we could imagine we would get back from an API or DB
+  const services = [
+    { name: 'Compound', APY: 0.05 },
+    { name: 'Aave', APY: 0.03 },
+    { name: 'Curve', APY: 0.025 },
+  ];
   return (
     <Theme>
       <HeaderWrapper>
@@ -32,7 +38,7 @@ function App() {
         </HeaderContainer>
       </HeaderWrapper>
 
-      <DeFiServices />
+      <DeFiServices services={services}/>
     </Theme>
   );
 }

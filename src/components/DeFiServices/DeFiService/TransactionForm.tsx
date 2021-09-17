@@ -29,10 +29,10 @@ function TransactionForm({
   accruedInterest,
 }: Props): ReactElement {
   const [transactionAmount, setTransactionAmount] = useState(0);
+  const USDCBalance = useAppSelector((state) => state.balances.USDC);
   const dispatch = useAppDispatch();
 
-  const USDCBalance = useAppSelector((state) => state.balances.USDC);
-
+  // handlers
   const handleChange = (e) => {
     e.preventDefault();
     setTransactionAmount(e.target.value);

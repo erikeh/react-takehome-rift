@@ -1,8 +1,9 @@
 import { createReducer, createAction } from '@reduxjs/toolkit';
 
-interface DeFiServiceBalances {
+export interface DeFiServiceBalances {
   amountDeposited: number;
   accruedInterest: number;
+  APY: number;
 }
 
 export interface InitialBalancesState {
@@ -17,6 +18,10 @@ interface TransactionActionPayload {
   amount: number;
   service: string;
 }
+interface AccrueInterestActionPayload {
+  interest: number;
+  service: string;
+}
 type WithdrawAllActionPayload = Omit<TransactionActionPayload, 'amount'>;
 
 export const balancesState: InitialBalancesState = {
@@ -24,14 +29,17 @@ export const balancesState: InitialBalancesState = {
   compound: {
     amountDeposited: 0,
     accruedInterest: 0,
+    APY: 0.05,
   },
   aave: {
     amountDeposited: 0,
     accruedInterest: 0,
+    APY: 0.05,
   },
   curve: {
     amountDeposited: 0,
     accruedInterest: 0,
+    APY: 0.05,
   },
 };
 
@@ -47,7 +55,7 @@ export const withdrawFromService = createAction<TransactionActionPayload>(
 export const withdrawAllFromService = createAction<WithdrawAllActionPayload>(
   'WITHDRAW_ALL_FROM_SERVICE',
 );
-export const accrueInterest = createAction<TransactionActionPayload>(
+export const accrueInterest = createAction<AccrueInterestActionPayload>(
   'ACCRUE_INTEREST_FROM_SERVICE',
 );
 
@@ -87,7 +95,7 @@ export const balancesReducer = createReducer<InitialBalancesState>(
         state[action.payload.service].accruedInterest = 0;
       })
       .addCase(accrueInterest, (state, action) => {
-        state[action.payload.service].accruedInterest += action.payload.amount;
+        state[action.payload.service].accruedInterest = action.payload.interest;
       });
   },
 );

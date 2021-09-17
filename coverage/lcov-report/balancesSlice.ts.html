@@ -148,7 +148,22 @@
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,26 +201,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,6 +216,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -235,15 +255,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createReducer, createAction } from '@reduxjs/toolkit';
 &nbsp;
-interface DeFiServiceBalances {
+export interface DeFiServiceBalances {
   amountDeposited: number;
   accruedInterest: number;
+  APY: number;
 }
 &nbsp;
 export interface InitialBalancesState {
@@ -258,6 +279,10 @@ interface TransactionActionPayload {
   amount: number;
   service: string;
 }
+interface AccrueInterestActionPayload {
+  interest: number;
+  service: string;
+}
 type WithdrawAllActionPayload = Omit&lt;TransactionActionPayload, 'amount'&gt;;
 &nbsp;
 export const balancesState: InitialBalancesState = {
@@ -265,14 +290,17 @@ export const balancesState: InitialBalancesState = {
   compound: {
     amountDeposited: 0,
     accruedInterest: 0,
+    APY: 0.05,
   },
   aave: {
     amountDeposited: 0,
     accruedInterest: 0,
+    APY: 0.05,
   },
   curve: {
     amountDeposited: 0,
     accruedInterest: 0,
+    APY: 0.05,
   },
 };
 &nbsp;
@@ -288,7 +316,7 @@ export const withdrawFromService = createAction&lt;TransactionActionPayload&gt;(
 export const withdrawAllFromService = createAction&lt;WithdrawAllActionPayload&gt;(
   'WITHDRAW_ALL_FROM_SERVICE',
 );
-export const accrueInterest = createAction&lt;TransactionActionPayload&gt;(
+export const accrueInterest = createAction&lt;AccrueInterestActionPayload&gt;(
   'ACCRUE_INTEREST_FROM_SERVICE',
 );
 &nbsp;
@@ -297,13 +325,15 @@ export const balancesReducer = createReducer&lt;InitialBalancesState&gt;(
   (builder) =&gt; {
     builder
       .addCase(depositUSDC, (state, action) =&gt; {
-        state.USDC += action.payload;
+        state.USDC += Number(action.payload);
       })
       .addCase(withdrawUSDC, (state, action) =&gt; {
-        state.USDC -= action.payload;
+        state.USDC -= Number(action.payload);
       })
       .addCase(depositToService, (state, action) =&gt; {
-        state[action.payload.service].amountDeposited += action.payload.amount;
+        state[action.payload.service].amountDeposited += Number(
+          action.payload.amount,
+        );
       })
       .addCase(withdrawFromService, (state, action) =&gt; {
         const withdrawAmount = action.payload.amount;
@@ -326,7 +356,7 @@ export const balancesReducer = createReducer&lt;InitialBalancesState&gt;(
         state[action.payload.service].accruedInterest = 0;
       })
       .addCase(accrueInterest, (state, action) =&gt; {
-        state[action.payload.service].accruedInterest += action.payload.amount;
+        state[action.payload.service].accruedInterest = action.payload.interest;
       });
   },
 );
@@ -337,7 +367,7 @@ export const balancesReducer = createReducer&lt;InitialBalancesState&gt;(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Sep 16 2021 15:18:09 GMT-0700 (Pacific Daylight Time)
+                at Thu Sep 16 2021 19:08:56 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="prettify.js"></script>

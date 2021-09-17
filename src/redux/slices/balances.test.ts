@@ -134,14 +134,37 @@ describe('redux balances slice', () => {
     const expectedState = {
       curve: {
         amountDeposited: 100,
-        accruedInterest: 4.2,
+        accruedInterest: 3,
       },
     };
     expect(
       balancesReducer(
         initialState as InitialBalancesState,
-        accrueInterest({ amount: 2.7, service: 'curve' }),
+        accrueInterest({ interest: 3, service: 'curve' }),
       ),
     ).toEqual(expectedState);
   });
+
+  it('should not accrue interest for USDC', () => {
+    const initialState = {
+      USDC: 100,
+      curve: {
+        amountDeposited: 100,
+        accruedInterest: 1.5,
+      },
+    };
+    const expectedState = {
+      USDC: 100,
+      curve: {
+        amountDeposited: 100,
+        accruedInterest: 3,
+      },
+    };
+    expect(
+      balancesReducer(
+        initialState as InitialBalancesState,
+        accrueInterest({ interest: 3, service: 'curve'  }),
+      ),
+    ).toEqual(expectedState);
+  })
 });

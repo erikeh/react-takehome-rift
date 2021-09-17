@@ -1,5 +1,10 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
+import {
+  accrueInterest,
+  DeFiServiceBalances,
+} from '../redux/slices/balancesSlice';
+import { useAppDispatch, useAppSelector } from '../typedHooks';
 
 const WidgetContainer = styled.div`
   display: flex;
@@ -13,18 +18,44 @@ const DaysToProgress = styled.p`
   font-size: ${({ theme }) => theme.header.fontSize};
 `;
 
-const DaysInputField = styled.input`
-
-`;
+const DaysInputField = styled.input``;
 
 const ProgressButton = styled.button``;
 
 function ProgressDaysWidget(): ReactElement {
+  const [daysToProgress, setDaysToProgress] = useState(0);
+  const services = useAppSelector((state) => state.balances);
+  const dispatch = useAppDispatch();
+
+  const handleDaysChange = (e) => {
+    setDaysToProgress(e.target.value);
+  };
+
+  const handleAccrueInterest = (e) => {
+    e.preventDefault();
+    for (const service in services) {
+      if (service === 'USDC') {
+        continue;
+      }
+      const { APY, amountDeposited, accruedInterest } = services[service];
+      const time = daysToProgress / 365;
+      const interest =
+        (amountDeposited + accruedInterest) * ((1 + APY / 12) ** 12 - 1) * time;
+      dispatch(
+        accrueInterest({ interest: Number(interest.toFixed(2)), service }),
+      );
+    }
+  };
+
   return (
     <WidgetContainer>
       <DaysToProgress>Days To Progress</DaysToProgress>
-      <DaysInputField placeholder="365" />
-      <ProgressButton>Enter</ProgressButton>
+      <DaysInputField
+        value={daysToProgress}
+        placeholder="365"
+        onChange={handleDaysChange}
+      />
+      <ProgressButton onClick={handleAccrueInterest}>Enter</ProgressButton>
     </WidgetContainer>
   );
 }

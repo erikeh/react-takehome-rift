@@ -2,6 +2,14 @@ import React, { ReactElement } from 'react';
 import DeFiService from './DeFiService';
 import styled from 'styled-components';
 
+interface Service {
+  name: string;
+  APY: number;
+}
+interface Props {
+  services: Service[];
+}
+
 const ServicesContainer = styled.div`
   width: 100%;
   display: flex;
@@ -9,13 +17,7 @@ const ServicesContainer = styled.div`
   justify-content: space-evenly;
 `;
 
-function DeFiServices(): ReactElement {
-  // This object is what we could imagine we would get back from an API or DB
-  const services = [
-    { name: 'Compound', APY: 0.05 },
-    { name: 'Aave', APY: 0.03 },
-    { name: 'Curve', APY: 0.025 },
-  ];
+function DeFiServices({ services }: Props): ReactElement {
   return (
     <ServicesContainer>
       {services.map((service) => (
