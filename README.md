@@ -8,7 +8,6 @@
 
 ## Known Bugs
 - the APY calculation works properly on first computation, but on subsequent computations it seems to calculate APY based on the interest, not the total value. This is probably a simple-ish fix but moving on for now to keep progress going.
--
 
 ## Notes
 - APY is accrued MONTHLY. This was arbitrary and can easily be changed.
