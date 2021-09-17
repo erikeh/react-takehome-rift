@@ -56,10 +56,10 @@ export const balancesReducer = createReducer<InitialBalancesState>(
   (builder) => {
     builder
       .addCase(depositUSDC, (state, action) => {
-        state.USDC += action.payload;
+        state.USDC += Number(action.payload);
       })
       .addCase(withdrawUSDC, (state, action) => {
-        state.USDC -= action.payload;
+        state.USDC -= Number(action.payload);
       })
       .addCase(depositToService, (state, action) => {
         state[action.payload.service].amountDeposited += Number(
