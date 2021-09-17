@@ -15,12 +15,24 @@ interface Props {
   accruedInterest: number;
 }
 
-const ConfirmButton = styled.button``;
+const AmountForm = styled.form`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 70%;
+`;
+const ConfirmButton = styled.button`
+  margin-top: 25%;
+  padding: 8px 25px;
+`;
 
-const AmountForm = styled.form``;
-
-const AmountField = styled.input``;
-
+const LabelFieldContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const AmountField = styled.input`
+  width: 50%;
+`;
 
 function TransactionForm({
   name,
@@ -70,8 +82,11 @@ function TransactionForm({
   return (
     <>
       <AmountForm onSubmit={handleSubmitTransaction}>
-        <label>Amount</label>
-        <AmountField value={transactionAmount} onChange={handleChange} />
+        <LabelFieldContainer>
+          <label>Amount</label>
+          <AmountField value={transactionAmount} onChange={handleChange} />
+        </LabelFieldContainer>
+
         <ConfirmButton type="submit">Confirm</ConfirmButton>
       </AmountForm>
     </>

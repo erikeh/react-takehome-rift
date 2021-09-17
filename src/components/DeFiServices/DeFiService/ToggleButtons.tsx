@@ -11,11 +11,17 @@ interface ButtonProps {
   isDepositing: boolean;
 }
 
-const ButtonsContainer = styled.section``;
+const ButtonsContainer = styled.section`
+  display: flex;
+  align-items: center;
+  height: 12%;
+  margin-bottom: 7%;
+`;
 
 const StyledButton = styled.button`
   background: none;
   border: 1px solid black;
+  padding: 10px 15px;
 `;
 
 const DepositButton = styled(StyledButton)<ButtonProps>`

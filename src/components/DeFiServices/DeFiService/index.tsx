@@ -13,22 +13,28 @@ const ServiceContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  background-color: ${({ theme }) => theme.bgColor};
+  background-color: ${({ theme }) => theme.card.bgColor};
   width: clamp(10em, 35%, 20em);
   border: 1px solid black;
   height: 500px;
   margin: 0 20px;
+  border-radius: 5px;
 `;
 
 const Header = styled.h2``;
 
 const APYWrapper = styled.div``;
 
-const BalancesContainer = styled.section``;
+const BalancesContainer = styled.section`
+  display: flex;
+  flex-flow: column nowrap;
+  height: 15%;
+  justify-content: space-around;
+  padding-bottom: 7%;
+`;
 
 function DeFiService({ name, APY }: Props): ReactElement {
   const [isDepositing, setIsDepositing] = useState(true);
-  const dispatch = useAppDispatch();
 
   const amountDeposited = useAppSelector(
     (state) => state.balances[name.toLowerCase()].amountDeposited,
@@ -40,9 +46,9 @@ function DeFiService({ name, APY }: Props): ReactElement {
   return (
     <ServiceContainer>
       <Header>{name}</Header>
-      <APYWrapper>{`APY: ${APY}`}</APYWrapper>
 
       <BalancesContainer>
+        <APYWrapper>{`APY: ${APY}`}</APYWrapper>
         <div>{`Amount Deposited: ${amountDeposited}`}</div>
         <div>{`Accrued Interest: ${accruedInterest}`}</div>
       </BalancesContainer>

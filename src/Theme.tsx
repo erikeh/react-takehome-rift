@@ -6,12 +6,14 @@ interface Props {
 }
 
 const globalTheme = {
-  bgColor: '#00171F',
+  card: {
+    bgColor: '#003459',
+  },
   header: {
     fontSize: '2em',
   },
-  buttonActive: '#80868a',
-  buttonInActive: '#F1FFFA',
+  buttonActive: '#F1FFFA',
+  buttonInActive: '#80868a',
 };
 
 export type CustomTheme = typeof globalTheme;

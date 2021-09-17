@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631845391710" clover="3.2.0">
-  <project timestamp="1631845391710" name="All files">
+<coverage generated="1631846820818" clover="3.2.0">
+  <project timestamp="1631846820819" name="All files">
     <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7" elements="31" coveredelements="31" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
     <file name="balancesSlice.ts" path="/Users/erikoh/Desktop/Dev/repos/react-takehome-rift/src/redux/slices/balancesSlice.ts">
       <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>

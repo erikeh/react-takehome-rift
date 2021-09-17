@@ -8,7 +8,7 @@ const BalanceDisplayContainer = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  background-color: ${({ theme }) => theme.bgColor};
+  background-color: ${({ theme }) => theme.card.bgColor};
   font-size: ${({ theme }) => theme.header.fontSize};
 `;
 

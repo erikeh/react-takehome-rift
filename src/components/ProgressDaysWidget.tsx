@@ -1,9 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
-import {
-  accrueInterest,
-  DeFiServiceBalances,
-} from '../redux/slices/balancesSlice';
+import { accrueInterest } from '../redux/slices/balancesSlice';
 import { useAppDispatch, useAppSelector } from '../typedHooks';
 
 const WidgetContainer = styled.div`
@@ -12,7 +9,7 @@ const WidgetContainer = styled.div`
   flex: 0 1 40%;
   align-items: center;
   border: 1px solid black;
-  background-color: ${({ theme }) => theme.bgColor};
+  background-color: ${({ theme }) => theme.card.bgColor};
 `;
 
 const DaysToProgress = styled.p`
