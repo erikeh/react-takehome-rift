@@ -3,8 +3,13 @@ import { useAppSelector } from '../typedHooks';
 import styled from 'styled-components';
 
 const BalanceDisplayContainer = styled.div`
+  display: flex;
   flex: 0 1 30%;
+  align-items: center;
+  justify-content: center;
   border: 1px solid black;
+  background-color: ${({ theme }) => theme.bgColor};
+  font-size: ${({ theme }) => theme.header.fontSize};
 `;
 
 function BalanceDisplay(): ReactElement {
@@ -12,7 +17,7 @@ function BalanceDisplay(): ReactElement {
 
   return (
     <BalanceDisplayContainer>
-      {`USDC Balance: ${balance}`}
+      <p>{`USDC Balance: ${balance}`}</p>
     </BalanceDisplayContainer>
   );
 }

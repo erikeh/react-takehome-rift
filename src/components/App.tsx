@@ -5,6 +5,7 @@ import DeFiServices from './DeFiServices';
 import styled from 'styled-components';
 import { hot } from 'react-hot-loader';
 import Theme from '../Theme';
+import GlobalStyle from '../globalStyles';
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -31,6 +32,7 @@ function App() {
   ];
   return (
     <Theme>
+      <GlobalStyle />
       <HeaderWrapper>
         <HeaderContainer>
           <BalanceDisplay />

@@ -12,6 +12,7 @@ const WidgetContainer = styled.div`
   flex: 0 1 40%;
   align-items: center;
   border: 1px solid black;
+  background-color: ${({ theme }) => theme.bgColor};
 `;
 
 const DaysToProgress = styled.p`
@@ -19,7 +20,6 @@ const DaysToProgress = styled.p`
 `;
 
 const DaysInputField = styled.input``;
-
 const ProgressButton = styled.button``;
 
 function ProgressDaysWidget(): ReactElement {

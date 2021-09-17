@@ -6,7 +6,7 @@ interface Props {
 }
 
 const globalTheme = {
-  bgColor: '#FF000',
+  bgColor: '#00171F',
   header: {
     fontSize: '2em',
   },

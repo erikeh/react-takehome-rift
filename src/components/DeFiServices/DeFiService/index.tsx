@@ -2,12 +2,6 @@ import React, { ReactElement, useState } from 'react';
 import ToggleButtons from './ToggleButtons';
 import TransactionForm from './TransactionForm';
 import { useAppSelector, useAppDispatch } from '../../../typedHooks';
-import {
-  depositUSDC,
-  withdrawUSDC,
-  depositToService,
-  withdrawFromService,
-} from '../../../redux/slices/balancesSlice';
 import styled from 'styled-components';
 
 interface Props {
@@ -19,9 +13,11 @@ const ServiceContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  background-color: ${({ theme }) => theme.bgColor};
   width: clamp(10em, 35%, 20em);
   border: 1px solid black;
   height: 500px;
+  margin: 0 20px;
 `;
 
 const Header = styled.h2``;
