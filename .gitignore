@@ -1,5 +1,5 @@
 dist/
 node_modules/
-src/**/*.tsx
+# src/**/*.tsx
 tests/__coverage__/
 tests/**/*.tsx
