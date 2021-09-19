@@ -57,6 +57,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
     "@types/react-hot-loader": "^4.1.1",
+    "bulma": "^0.9.3",
     "dotenv": "^10.0.0",
     "react-bulma-components": "^4.0.7",
     "react-redux": "^7.2.5",

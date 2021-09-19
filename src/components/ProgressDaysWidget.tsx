@@ -4,6 +4,12 @@ import { Box } from 'react-bulma-components';
 import { accrueInterest } from '../redux/slices/balancesSlice';
 import { useAppDispatch, useAppSelector } from '../typedHooks';
 
+const StyledBox = styled(Box)`
+  @media screen and (max-width: 768px) {
+    margin-bottom: 5%;
+  }
+`;
+
 const WidgetContainer = styled.form`
   display: flex;
   flex-flow: column nowrap;
@@ -11,8 +17,6 @@ const WidgetContainer = styled.form`
   justify-content: space-evenly;
   height: 60%;
   align-items: center;
-  /* border: 1px solid black; */
-  /* border-radius: 10px; */
   /* background-color: ${({ theme }) => theme.card.bgColor}; */
 `;
 
@@ -70,7 +74,7 @@ function ProgressDaysWidget(): ReactElement {
   };
 
   return (
-    <Box tablet={{ mb: 5 }}>
+    <StyledBox>
       <WidgetContainer onSubmit={handleAccrueInterest}>
         <StyledRow>
           <StyledLabel>
@@ -86,7 +90,7 @@ function ProgressDaysWidget(): ReactElement {
           <StyledButton type="submit">Enter</StyledButton>
         </StyledRow>
       </WidgetContainer>
-    </Box>
+    </StyledBox>
   );
 }
 
