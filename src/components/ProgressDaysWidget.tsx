@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
+import { Box } from 'react-bulma-components';
 import { accrueInterest } from '../redux/slices/balancesSlice';
 import { useAppDispatch, useAppSelector } from '../typedHooks';
 
@@ -10,9 +11,9 @@ const WidgetContainer = styled.form`
   justify-content: space-evenly;
   height: 60%;
   align-items: center;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: ${({ theme }) => theme.card.bgColor};
+  /* border: 1px solid black; */
+  /* border-radius: 10px; */
+  /* background-color: ${({ theme }) => theme.card.bgColor}; */
 `;
 
 const StyledRow = styled.div`
@@ -54,9 +55,14 @@ function ProgressDaysWidget(): ReactElement {
         continue;
       }
       const { APY, amountDeposited, accruedInterest } = services[service];
+      console.log('APY: ', APY);
+      console.log('amountDeposited: ', amountDeposited);
+      console.log('accruedInterest: ', accruedInterest);
       const time = daysToProgress / 365;
       const interest =
         (amountDeposited + accruedInterest) * ((1 + APY / 12) ** 12 - 1) * time;
+      console.log('interest: ', interest);
+      console.log('--------');
       dispatch(
         accrueInterest({ interest: Number(interest.toFixed(2)), service }),
       );
@@ -64,21 +70,23 @@ function ProgressDaysWidget(): ReactElement {
   };
 
   return (
-    <WidgetContainer onSubmit={handleAccrueInterest}>
-      <StyledRow>
-        <StyledLabel>
-          Days To Progress
-          <StyledInput
-            value={daysToProgress}
-            placeholder="365"
-            onChange={handleDaysChange}
-          />
-        </StyledLabel>
-      </StyledRow>
-      <StyledRow>
-        <StyledButton type="submit">Enter</StyledButton>
-      </StyledRow>
-    </WidgetContainer>
+    <Box tablet={{ mb: 5 }}>
+      <WidgetContainer onSubmit={handleAccrueInterest}>
+        <StyledRow>
+          <StyledLabel>
+            Days To Progress
+            <StyledInput
+              value={daysToProgress}
+              placeholder="365"
+              onChange={handleDaysChange}
+            />
+          </StyledLabel>
+        </StyledRow>
+        <StyledRow>
+          <StyledButton type="submit">Enter</StyledButton>
+        </StyledRow>
+      </WidgetContainer>
+    </Box>
   );
 }
 

@@ -58,6 +58,7 @@
     "@reduxjs/toolkit": "^1.6.1",
     "@types/react-hot-loader": "^4.1.1",
     "dotenv": "^10.0.0",
+    "react-bulma-components": "^4.0.7",
     "react-redux": "^7.2.5",
     "styled-components": "^5.3.1"
   }

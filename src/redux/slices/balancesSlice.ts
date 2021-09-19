@@ -95,7 +95,9 @@ export const balancesReducer = createReducer<InitialBalancesState>(
         state[action.payload.service].accruedInterest = 0;
       })
       .addCase(accrueInterest, (state, action) => {
-        state[action.payload.service].accruedInterest = action.payload.interest;
+        state[action.payload.service].accruedInterest += Number(
+          action.payload.interest,
+        );
       });
   },
 );

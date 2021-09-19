@@ -1,4 +1,5 @@
 import React, { Dispatch, ReactElement, SetStateAction } from 'react';
+import { Button, Section, Container } from 'react-bulma-components';
 import styled from 'styled-components';
 
 interface Props {
@@ -10,21 +11,15 @@ interface ButtonProps {
   isDepositing: boolean;
 }
 
-const ButtonsContainer = styled.section`
+const ButtonsContainer = styled(Container)`
   display: flex;
-  align-items: center;
+  justify-content: center;
   height: 12%;
   margin-bottom: 7%;
 `;
 
-const StyledButton = styled.button`
-  background: none;
-  border: 1px solid black;
-  padding: 10px 15px;
+const StyledButton = styled(Button)`
   transition: background-color 0.3s;
-  &:hover {
-    background-color: #f1fffa;
-  }
 `;
 
 const DepositButton = styled(StyledButton)<ButtonProps>`
@@ -43,6 +38,7 @@ function ToggleButtons({ isDepositing, setIsDepositing }: Props): ReactElement {
       <DepositButton
         isDepositing={isDepositing}
         onClick={() => setIsDepositing(true)}
+        outlined={false}
       >
         Deposit
       </DepositButton>

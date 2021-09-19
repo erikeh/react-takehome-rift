@@ -1,4 +1,12 @@
 import React, { ReactElement, useState } from 'react';
+import {
+  Container,
+  Section,
+  Columns,
+  Card,
+  Box,
+  Heading,
+} from 'react-bulma-components';
 import ToggleButtons from './ToggleButtons';
 import TransactionForm from './TransactionForm';
 import { useAppSelector } from '../../../typedHooks';
@@ -9,28 +17,25 @@ interface Props {
   APY: number;
 }
 
-const ServiceContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+const StyledCard = styled(Card)`
+  height: 100%;
+`
+
+const ServiceContainer = styled(Box)`
   background-color: ${({ theme }) => theme.card.bgColor};
-  width: clamp(10em, 35%, 20em);
-  border: 1px solid black;
-  height: 500px;
-  margin: 0 20px;
-  border-radius: 5px;
 `;
 
 const Header = styled.h2``;
 
 const APYWrapper = styled.div``;
 
-const BalancesContainer = styled.section`
+const BalancesContainer = styled(Section)`
   display: flex;
   flex-flow: column nowrap;
-  height: 15%;
-  justify-content: space-around;
-  padding-bottom: 7%;
+  /* height: 15%; */
+  /* justify-content: space-around; */
+  /* padding-bottom: 7%; */
+  /* padding: 5px 0; */
 `;
 
 function DeFiService({ name, APY }: Props): ReactElement {
@@ -44,27 +49,43 @@ function DeFiService({ name, APY }: Props): ReactElement {
   );
 
   return (
-    <ServiceContainer>
-      <Header>{name}</Header>
+    <Columns.Column
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-evenly"
+      alignItems="center"
+    >
+      <StyledCard>
+        <Container>
+          <Container>
+            <Card.Header textAlign="center" py={2} pl={3}>
+              <Heading size={4} weight="normal" spaced={true}>
+                {name}
+              </Heading>
+            </Card.Header>
+          </Container>
+          <Card.Content>
+            <BalancesContainer px={5} py={3} pb={5}>
+              <APYWrapper>{`APY: ${APY}`}</APYWrapper>
+              <div data-testid="amountDeposited">{`Amount Deposited: ${amountDeposited}`}</div>
+              <div data-testid="accruedInterest">{`Accrued Interest: ${accruedInterest}`}</div>
+            </BalancesContainer>
 
-      <BalancesContainer>
-        <APYWrapper>{`APY: ${APY}`}</APYWrapper>
-        <div data-testid="amountDeposited">{`Amount Deposited: ${amountDeposited}`}</div>
-        <div data-testid="accruedInterest">{`Accrued Interest: ${accruedInterest}`}</div>
-      </BalancesContainer>
+            <ToggleButtons
+              isDepositing={isDepositing}
+              setIsDepositing={setIsDepositing}
+            />
 
-      <ToggleButtons
-        isDepositing={isDepositing}
-        setIsDepositing={setIsDepositing}
-      />
-
-      <TransactionForm
-        name={name}
-        isDepositing={isDepositing}
-        amountDeposited={amountDeposited}
-        accruedInterest={accruedInterest}
-      />
-    </ServiceContainer>
+            <TransactionForm
+              name={name}
+              isDepositing={isDepositing}
+              amountDeposited={amountDeposited}
+              accruedInterest={accruedInterest}
+            />
+          </Card.Content>
+        </Container>
+      </StyledCard>
+    </Columns.Column>
   );
 }
 

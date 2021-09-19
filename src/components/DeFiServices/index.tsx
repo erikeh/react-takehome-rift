@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import DeFiService from './DeFiService';
 import styled from 'styled-components';
+import { Columns } from 'react-bulma-components';
 
 interface Service {
   name: string;
@@ -19,11 +20,11 @@ const ServicesContainer = styled.div`
 
 function DeFiServices({ services }: Props): ReactElement {
   return (
-    <ServicesContainer>
+    <Columns>
       {services.map((service) => (
         <DeFiService key={service.name} name={service.name} APY={service.APY} />
       ))}
-    </ServicesContainer>
+    </Columns>
   );
 }
 

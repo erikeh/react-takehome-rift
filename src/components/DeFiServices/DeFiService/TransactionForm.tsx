@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../typedHooks';
+import { Form, Button } from 'react-bulma-components';
 import styled from 'styled-components';
 import {
   depositUSDC,
@@ -16,30 +17,26 @@ interface Props {
   accruedInterest: number;
 }
 
-const AmountForm = styled.form`
+const AmountForm = styled(Form.Field)`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  width: 70%;
 `;
-const ConfirmButton = styled.button`
+const ConfirmButton = styled(Button)`
   margin: 10% 0;
   padding: 8px 25px;
 `;
-const WithdrawAllButton = styled.button`
+const WithdrawAllButton = styled(Button)`
   padding: 8px 35px;
 `;
 
-const LabelFieldContainer = styled.div`
+const StyledFormControl = styled(Form.Control)`
   display: flex;
-  justify-content: space-between;
+  flex-flow: column nowrap;
+  align-content: center;
 `;
-const AmountInput = styled.input`
-  width: 50%;
-  border: 0 0 1px 0;
-  outline: none;
-  margin-left: 10px;
-`;
+
+const AmountInput = styled(Form.Input)``;
 
 function TransactionForm({
   name,
@@ -47,7 +44,9 @@ function TransactionForm({
   amountDeposited,
   accruedInterest,
 }: Props): ReactElement {
-  const [transactionAmount, setTransactionAmount] = useState(0);
+  const [transactionAmount, setTransactionAmount] = useState<
+    number | undefined
+  >('');
   const USDCBalance = useAppSelector((state) => state.balances.USDC);
   const dispatch = useAppDispatch();
 
@@ -90,22 +89,23 @@ function TransactionForm({
 
   return (
     <>
-      <AmountForm onSubmit={handleSubmitTransaction}>
-        <LabelFieldContainer>
-          <label>
-            Amount
-            <AmountInput
-              type="number"
-              value={transactionAmount}
-              onChange={handleChange}
-            />
-          </label>
-        </LabelFieldContainer>
-        <ConfirmButton type="submit">Confirm</ConfirmButton>
+      <AmountForm>
+        <Form.Label>Amount</Form.Label>
+        <StyledFormControl>
+          <AmountInput
+            type="number"
+            value={transactionAmount}
+            onChange={handleChange}
+            onFocus={() => setTransactionAmount('')}
+          />
+          <ConfirmButton onClick={handleSubmitTransaction} alignSelf="center">
+            Confirm
+          </ConfirmButton>
+        </StyledFormControl>
+        <WithdrawAllButton onClick={handleWithdrawAll}>
+          Withdraw All
+        </WithdrawAllButton>
       </AmountForm>
-      <WithdrawAllButton onClick={handleWithdrawAll}>
-        Withdraw All
-      </WithdrawAllButton>
     </>
   );
 }

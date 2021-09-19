@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Box } from 'react-bulma-components';
 import { useAppSelector } from '../typedHooks';
 import styled from 'styled-components';
 
@@ -19,9 +20,9 @@ function BalanceDisplay(): ReactElement {
   const balance = useAppSelector((state) => state.balances.USDC);
 
   return (
-    <BalanceDisplayContainer>
+    <Box>
       <p>{`USDC Balance: ${balance}`}</p>
-    </BalanceDisplayContainer>
+    </Box>
   );
 }
 
