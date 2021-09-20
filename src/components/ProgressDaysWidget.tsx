@@ -45,7 +45,6 @@ const StyledButton = styled.button`
 
 function ProgressDaysWidget(): ReactElement {
   const [daysToProgress, setDaysToProgress] = useState(0);
-  const services = useAppSelector((state) => state.balances);
   const dispatch = useAppDispatch();
 
   const handleDaysChange = (e) => {
@@ -54,23 +53,7 @@ function ProgressDaysWidget(): ReactElement {
 
   const handleAccrueInterest = (e) => {
     e.preventDefault();
-    for (const service in services) {
-      if (service === 'USDC') {
-        continue;
-      }
-      const { APY, amountDeposited, accruedInterest } = services[service];
-      console.log('APY: ', APY);
-      console.log('amountDeposited: ', amountDeposited);
-      console.log('accruedInterest: ', accruedInterest);
-      const time = daysToProgress / 365;
-      const interest =
-        (amountDeposited + accruedInterest) * ((1 + APY / 12) ** 12 - 1) * time;
-      console.log('interest: ', interest);
-      console.log('--------');
-      dispatch(
-        accrueInterest({ interest: Number(interest.toFixed(2)), service }),
-      );
-    }
+    dispatch(accrueInterest({ daysToProgress }));
   };
 
   return (

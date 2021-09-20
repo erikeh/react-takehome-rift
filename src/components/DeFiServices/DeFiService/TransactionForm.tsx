@@ -44,9 +44,7 @@ function TransactionForm({
   amountDeposited,
   accruedInterest,
 }: Props): ReactElement {
-  const [transactionAmount, setTransactionAmount] = useState<
-    number | undefined
-  >('');
+  const [transactionAmount, setTransactionAmount] = useState<number | ''>('');
   const USDCBalance = useAppSelector((state) => state.balances.USDC);
   const dispatch = useAppDispatch();
 

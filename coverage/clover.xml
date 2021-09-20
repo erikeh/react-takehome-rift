@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631865235893" clover="3.2.0">
-  <project timestamp="1631865235893" name="All files">
-    <metrics statements="96" coveredstatements="93" conditionals="26" coveredconditionals="18" methods="30" coveredmethods="29" elements="152" coveredelements="140" complexity="0" loc="96" ncloc="96" packages="5" files="9" classes="9"/>
+<coverage generated="1632118368783" clover="3.2.0">
+  <project timestamp="1632118368783" name="All files">
+    <metrics statements="97" coveredstatements="82" conditionals="26" coveredconditionals="8" methods="29" coveredmethods="24" elements="152" coveredelements="114" complexity="0" loc="97" ncloc="97" packages="5" files="9" classes="9"/>
     <package name="src">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="Theme.tsx" path="/Users/erikoh/Desktop/Dev/repos/react-takehome-rift/src/Theme.tsx">
@@ -11,93 +11,87 @@
       </file>
       <file name="typedHooks.ts" path="/Users/erikoh/Desktop/Dev/repos/react-takehome-rift/src/typedHooks.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="14" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+      <metrics statements="16" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
       <file name="ProgressDaysWidget.tsx" path="/Users/erikoh/Desktop/Dev/repos/react-takehome-rift/src/components/ProgressDaysWidget.tsx">
-        <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="29" count="3" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
+        <metrics statements="16" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
-        <line num="43" count="4" type="stmt"/>
-        <line num="44" count="3" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="50" count="3" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="53" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="56" count="3" type="stmt"/>
-        <line num="57" count="3" type="stmt"/>
-        <line num="59" count="3" type="stmt"/>
-        <line num="60" count="3" type="stmt"/>
-        <line num="66" count="3" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.DeFiServices.DeFiService">
-      <metrics statements="45" coveredstatements="42" conditionals="22" coveredconditionals="14" methods="14" coveredmethods="13"/>
+      <metrics statements="45" coveredstatements="31" conditionals="22" coveredconditionals="4" methods="14" coveredmethods="10"/>
       <file name="ToggleButtons.tsx" path="/Users/erikoh/Desktop/Dev/repos/react-takehome-rift/src/components/DeFiServices/DeFiService/ToggleButtons.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="32" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="37" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="41" count="9" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
+        <line num="32" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="5" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
       </file>
       <file name="TransactionForm.tsx" path="/Users/erikoh/Desktop/Dev/repos/react-takehome-rift/src/components/DeFiServices/DeFiService/TransactionForm.tsx">
-        <metrics statements="25" coveredstatements="22" conditionals="18" coveredconditionals="10" methods="5" coveredmethods="4"/>
-        <line num="19" count="1" type="stmt"/>
+        <metrics statements="26" coveredstatements="12" conditionals="18" coveredconditionals="0" methods="6" coveredmethods="2"/>
+        <line num="20" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="50" count="11" type="stmt"/>
-        <line num="51" count="18" type="stmt"/>
-        <line num="52" count="11" type="stmt"/>
-        <line num="55" count="11" type="stmt"/>
-        <line num="56" count="2" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="60" count="11" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="62" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="63" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="47" count="5" type="stmt"/>
+        <line num="48" count="5" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="52" count="5" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="57" count="5" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="64" count="0" type="stmt"/>
-        <line num="66" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="74" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="71" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="74" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="75" count="0" type="stmt"/>
-        <line num="77" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="87" count="11" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
-        <line num="91" count="11" type="stmt"/>
+        <line num="84" count="5" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="88" count="5" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
       </file>
       <file name="index.tsx" path="/Users/erikoh/Desktop/Dev/repos/react-takehome-rift/src/components/DeFiServices/DeFiService/index.tsx">
-        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="37" count="9" type="stmt"/>
-        <line num="39" count="9" type="stmt"/>
-        <line num="40" count="16" type="stmt"/>
-        <line num="42" count="9" type="stmt"/>
-        <line num="43" count="14" type="stmt"/>
-        <line num="46" count="9" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="41" count="5" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="44" count="5" type="stmt"/>
+        <line num="47" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.redux">
@@ -113,31 +107,38 @@
       </file>
     </package>
     <package name="src.redux.slices">
-      <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+      <metrics statements="29" coveredstatements="29" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="7"/>
       <file name="balancesSlice.ts" path="/Users/erikoh/Desktop/Dev/repos/react-takehome-rift/src/redux/slices/balancesSlice.ts">
-        <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
-        <line num="27" count="2" type="stmt"/>
+        <metrics statements="29" coveredstatements="29" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="7"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
         <line num="47" count="2" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
         <line num="51" count="2" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="62" count="2" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
-        <line num="70" count="2" type="stmt"/>
-        <line num="73" count="2" type="stmt"/>
-        <line num="78" count="3" type="stmt"/>
-        <line num="79" count="3" type="stmt"/>
-        <line num="81" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="82" count="1" type="stmt"/>
-        <line num="84" count="1" type="stmt"/>
-        <line num="86" count="2" type="stmt"/>
-        <line num="90" count="1" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="77" count="2" type="stmt"/>
+        <line num="78" count="2" type="stmt"/>
+        <line num="80" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
         <line num="94" count="1" type="stmt"/>
-        <line num="95" count="1" type="stmt"/>
-        <line num="98" count="5" type="stmt"/>
+        <line num="97" count="3" type="stmt"/>
+        <line num="98" count="3" type="stmt"/>
+        <line num="99" count="3" type="stmt"/>
+        <line num="100" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="101" count="2" type="stmt"/>
+        <line num="103" count="5" type="stmt"/>
+        <line num="105" count="5" type="stmt"/>
+        <line num="108" count="5" type="stmt"/>
       </file>
     </package>
   </project>

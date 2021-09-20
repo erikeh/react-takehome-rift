@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { store } from '../../../redux/store';
 import ProgressDaysWidget from '../../ProgressDaysWidget';
+import { balancesReducer } from '../../../redux/slices/balancesSlice';
 import DeFiService from './index';
 import Theme from '../../../Theme';
 import '@testing-library/jest-dom';
@@ -62,7 +63,7 @@ describe('transaction form', () => {
   it('deposits USDC into correct service', () => {
     renderWithProviders(<DeFiService name={'Compound'} APY={0.05} />);
 
-    const input = screen.getByLabelText('Amount');
+    const input = screen.getByTestId('amount');
     const confirmTransactionButton = screen.getByText('Confirm');
 
     fireEvent.change(input, { target: { value: 100 } });

@@ -19,23 +19,19 @@ interface Props {
 
 const StyledCard = styled(Card)`
   height: 100%;
-`
-
-const ServiceContainer = styled(Box)`
-  background-color: ${({ theme }) => theme.card.bgColor};
+  max-width: 100%;
 `;
 
-const Header = styled.h2``;
+const BalanceWrapper = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+`
 
 const APYWrapper = styled.div``;
 
 const BalancesContainer = styled(Section)`
   display: flex;
   flex-flow: column nowrap;
-  /* height: 15%; */
-  /* justify-content: space-around; */
-  /* padding-bottom: 7%; */
-  /* padding: 5px 0; */
 `;
 
 function DeFiService({ name, APY }: Props): ReactElement {
@@ -67,8 +63,8 @@ function DeFiService({ name, APY }: Props): ReactElement {
           <Card.Content>
             <BalancesContainer px={5} py={3} pb={5}>
               <APYWrapper>{`APY: ${APY}`}</APYWrapper>
-              <div data-testid="amountDeposited">{`Amount Deposited: ${amountDeposited}`}</div>
-              <div data-testid="accruedInterest">{`Accrued Interest: ${accruedInterest}`}</div>
+              <BalanceWrapper data-testid="amountDeposited">{`Amount Deposited: ${amountDeposited}`}</BalanceWrapper>
+              <BalanceWrapper data-testid="accruedInterest">{`Accrued Interest: ${accruedInterest}`}</BalanceWrapper>
             </BalancesContainer>
 
             <ToggleButtons
