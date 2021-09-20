@@ -19,8 +19,7 @@ interface TransactionActionPayload {
   service: string;
 }
 interface AccrueInterestActionPayload {
-  interest: number;
-  service: string;
+  daysToProgress: number;
 }
 type WithdrawAllActionPayload = Omit<TransactionActionPayload, 'amount'>;
 
@@ -95,7 +94,19 @@ export const balancesReducer = createReducer<InitialBalancesState>(
         state[action.payload.service].accruedInterest = 0;
       })
       .addCase(accrueInterest, (state, action) => {
-        state[action.payload.service].accruedInterest = action.payload.interest;
+        const daysToProgress = action.payload.daysToProgress;
+        const time = daysToProgress / 365;
+        for (const service in state) {
+          if (service === 'USDC') {
+            continue;
+          }
+          const { APY, amountDeposited, accruedInterest } = state[service];
+          const interest =
+            (amountDeposited + accruedInterest) *
+            ((1 + APY / 12) ** 12 - 1) *
+            time;
+          state[service].accruedInterest += Number(interest.toFixed(2));
+        }
       });
   },
 );
